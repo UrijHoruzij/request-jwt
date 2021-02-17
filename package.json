@@ -1,0 +1,37 @@
+{
+  "name": "request-jwt",
+  "version": "2.1.0",
+  "description": "JS library for working with jwt.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run rm && cross-env NODE_ENV=production babel index.js --out-dir dist",
+    "rm": "rimraf ./dist",
+    "eslint": "eslint",
+    "prettier": "prettier"
+  },
+  "keywords": [
+    "auth",
+    "fetch",
+    "jwt",
+    "SSO",
+    "sign in",
+    "sign up",
+    "http"
+  ],
+  "author": "Urij Horuzij",
+  "license": "MIT",
+  "dependencies": {
+    "isomorphic-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-minify": "^0.5.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.19.0",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2"
+  }
+}
