@@ -55,19 +55,7 @@ function Core(url) {
             headers: getHeaders()
         });
         if (response.ok) {
-            let result = await response.json();
-            accessToken = result.accessToken;
-            accessTokenTime = result.accessTokenTime;
-            SSOToken = result.SSOToken;
-            refreshToken = result.refreshToken;
-            authUser = result.id;
-            let obj = {};
-            for (let key in result) {
-                if(key !== "accessToken" || key !== "accessTokenTime" || key !== "refreshToken"){
-                    obj[key] = result[key];
-                }
-            }
-            return obj;
+            return GetResult(response);
         } else {
             throw new Error('Error sign in.');
         }
@@ -83,19 +71,7 @@ function Core(url) {
             headers: getHeaders()
         });
         if (response.ok) {
-            let result = await response.json();
-            accessToken = result.accessToken;
-            accessTokenTime = result.accessTokenTime;
-            SSOToken = result.SSOToken;
-            refreshToken = result.refreshToken;
-            authUser = result.id;
-            let obj = {};
-            for (let key in result) {
-                if(key !== "accessToken" || key !== "accessTokenTime" || key !== "refreshToken"){
-                    obj[key] = result[key];
-                }
-            }
-            return obj;
+           return GetResult(response);
         } else {
             accessToken = '';
             accessTokenTime = '';
@@ -113,6 +89,21 @@ function Core(url) {
                 this.refresh();
             }
         }
+    }
+    const GetResult = (response) => {
+        let result = await response.json();
+        accessToken = result.accessToken;
+        accessTokenTime = result.accessTokenTime;
+        SSOToken = result.SSOToken;
+        refreshToken = result.refreshToken;
+        authUser = result._id;
+        let obj = {};
+        for (let key in result) {
+            if(key !== "accessToken" || key !== "accessTokenTime" || key !== "refreshToken"){
+                obj[key] = result[key];
+            }
+        }
+        return obj;
     }
     this.http = async (url, method="GET", data={}, headers={}) => {
         let options = {
