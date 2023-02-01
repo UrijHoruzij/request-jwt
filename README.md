@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/logo.png" alt="Request-jwt logo" width="128" height="128">
+  <img src="./assets/logo.png" alt="Request-jwt logo" width="295" height="128">
   <h1 align="center">Request-jwt</h1>
 </p>
 <p align="center">
